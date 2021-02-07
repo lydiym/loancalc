@@ -34,7 +34,9 @@ class Loan:
                 body_pay=round(state.month_body_pay, 2)
             )
 
-        return REPORT_HEADER + '\n' + '\n'.join(starmap(report_format, enumerate(self.states())))
+        report_table = '\n'.join(starmap(report_format, enumerate(self.states())))
+
+        return f'{REPORT_HEADER}\n{report_table}'
 
     @cached_property
     def overpayment(self):
