@@ -22,10 +22,7 @@ class LoanState:
     @cached_property
     def month_percentage_pay(self):
         days_in_current_year = days_in_year(self.current_date.year)
-        pay = self.body * self.info.year_percentage_rate * self._days_between_dates / days_in_current_year
-        if pay < 0:
-            print(pay)
-        return pay
+        return self.body * self.info.year_percentage_rate * self._days_between_dates / days_in_current_year
 
     @cached_property
     def month_body_pay(self):
